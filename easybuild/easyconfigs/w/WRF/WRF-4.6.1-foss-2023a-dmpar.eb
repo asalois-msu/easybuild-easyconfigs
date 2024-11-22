@@ -1,0 +1,39 @@
+name = 'WRF'
+version = '4.6.1'
+buildtype = "dmpar"
+versionsuffix = '-%s' % buildtype
+
+homepage = 'https://www.wrf-model.org'
+description = """The Weather Research and Forecasting (WRF) Model is a next-generation mesoscale
+ numerical weather prediction system designed to serve both operational forecasting and atmospheric
+ research needs."""
+
+toolchain = {'name': 'foss', 'version': '2023a'}
+toolchainopts = {'opt': False}  # don't use agressive optimization, stick to -O2
+preconfigopts = "export NETCDF=$EBROOTNETCDFMINFORTRAN && export NETCDF_C=$EBROOTNETCDF &&"
+
+github_account = 'wrf-model'
+source_urls = [GITHUB_RELEASE]
+sources = ['v%(version)s.tar.gz']
+checksums = [
+    {'v4.6.1.tar.gz': 'b8ec11b240a3cf1274b2bd609700191c6ec84628e4c991d3ab562ce9dc50b5f2'},
+]
+
+# csh is used by WRF install scripts
+builddependencies = [
+    ('Autotools', '20220317'),
+    ('tcsh', '6.24.10'),
+    ('time', '1.9'),
+    ('Perl', '5.36.1'),
+]
+
+dependencies = [
+    ('JasPer', '2.0.33'),
+    ('netCDF', '4.9.2'),
+    ('netCDF-Fortran', '4.6.1'),
+]
+
+# limit parallel build to 16
+maxparallel = 16
+
+moduleclass = 'geo'
