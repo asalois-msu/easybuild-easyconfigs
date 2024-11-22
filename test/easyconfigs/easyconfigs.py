@@ -562,6 +562,8 @@ class EasyConfigTest(TestCase):
             'Geant4': [('11.0.1;', [r'GATE-9\.2-foss-2021b'])],
             # VMTK 1.4.x requires ITK 4.13.x
             'ITK': [(r'4\.13\.', [r'VMTK-1\.4\.'])],
+            # WPS needs older JasPer
+            'JasPer': [('2.0.33:', [r'WPS-4\.6\.0'])],
             # Kraken 1.x requires Jellyfish 1.x (Roary & metaWRAP depend on Kraken 1.x)
             'Jellyfish': [(r'1\.', [r'Kraken-1\.', r'Roary-3\.12\.0', r'metaWRAP-1\.2'])],
             # Libint 1.1.6 is required by older CP2K versions
