@@ -28,7 +28,7 @@ builddependencies = [
 ]
 
 dependencies = [
-    ('JasPer', '2.0.33'),
+    ('JasPer', '4.0.0'),
     ('netCDF', '4.9.2'),
     ('netCDF-Fortran', '4.6.1'),
 ]
